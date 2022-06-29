@@ -1,11 +1,14 @@
 pipeline {
-  stages {
-        stage ('Build') {
+    agent any
+
+    stages {
+        stage('Build') {
             steps {
-              mvn package
-                }
+                sh 'make' 
+                archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true 
+            }
         }
-  }
+    }
 }
     
               
