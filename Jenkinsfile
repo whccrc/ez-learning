@@ -1,3 +1,4 @@
+appName = "ezlearning"
 pipeline {
     agent any
 
