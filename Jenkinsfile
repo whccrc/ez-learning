@@ -1,7 +1,7 @@
 pipeline {
     agent any
 
-   
+    stages {
         stage('Git Pull') {
             steps {
             git url: 'https://github.com/a-dhaou/ez-learning'
@@ -37,6 +37,6 @@ pipeline {
 
 
 
-
+    }
     }
     
