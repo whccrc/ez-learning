@@ -32,9 +32,9 @@ pipeline {
    steps {
        script {
            openshift.withCluster() {
-               openshift.withProject("project1") {
+               openshift.withProject("attempt5") {
                    // bc = build configuration ...
-                   def build = openshift.selector('bc', 'bcezlearning').startBuild("--from-dir .")
+                   def build = openshift.selector('bc', 'attempt-at-depconf').startBuild("--from-dir .")
                    build.logs('-f')
                }
            }
