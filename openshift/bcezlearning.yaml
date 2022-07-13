@@ -1,7 +1,7 @@
 apiVersion: build.openshift.io/v1
 kind: BuildConfig
 metadata:
-  name: bcezlearning
+  name: ezlearning
   namespace: project1
   labels:
     app.kubernetes.io/name: DockerImage
