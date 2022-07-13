@@ -1,0 +1,24 @@
+﻿kind: Service
+apiVersion: v1
+metadata:
+  name: mariadbservice
+  namespace: project1
+  
+  labels:
+    template: mariadb-persistent-template
+    template.openshift.io/template-instance-owner: 2b96a06c-fb03-48a8-8c39-f04b12a4aa10
+  
+ 
+spec:
+  
+  ports:
+    - name: mariadb
+      protocol: TCP
+      port: 3306
+      targetPort: 3306
+  
+  
+  selector:
+    name: mariadb
+status:
+  loadBalancer: {}

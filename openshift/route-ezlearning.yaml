@@ -1,0 +1,15 @@
+﻿kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: ezlearningroute
+  namespace: project1
+ 
+spec:
+ 
+  to:
+    kind: Service
+    name: ezlearning
+  port:
+    targetPort: 8080
+  wildcardPolicy: None
+
