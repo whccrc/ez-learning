@@ -70,6 +70,6 @@ spec:
             - name: APP_PROFILE
               value: ‘prod’
             - name: DB_URL
-              value: 'mariadb.attempt5.svc.cluster.local' 
+              value: 'mariadb.project1.svc.cluster.local' 
 
 
