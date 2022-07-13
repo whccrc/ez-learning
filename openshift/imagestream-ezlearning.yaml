@@ -2,5 +2,5 @@
 apiVersion: image.openshift.io/v1
 metadata:
   name: ezlearning
-  namespace: attempt5
+  namespace: project1
   
