@@ -1,0 +1,22 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  name: bcezlearning
+  namespace: project1
+  labels:
+    app.kubernetes.io/name: DockerImage
+  name: ezlearning
+spec:
+  output:
+    to:
+      kind: ImageStream
+      name: ezlearning:latest
+  source:
+    # Expect a local directory to be streamed to OpenShift as a build source
+    type: Binary
+    binary: {}
+  strategy:
+    type: Docker
+    dockerStrategy:
+      # Find the image build instructions in ./Dockerfile
+      dockerfilePath: ./openshift/Dockerfile
