@@ -1,12 +1,8 @@
-library identifier: "pipeline-library@v1.5",
-retriever: modernSCM(
-  [
-    $class: "GitSCMSource",
-    remote: "https://github.com/redhat-cop/pipeline-library.git"
-  ]
-)
+
 appName = "ezlearning"
+
 pipeline {
+
     agent any
 
     stages {
@@ -32,15 +28,22 @@ pipeline {
         }
 
 
+        stage('Docker Build in dev') {
+   steps {
+       script {
+           openshift.withCluster() {
+               openshift.withProject("project1") {
+                   // bc = build configuration ...
+                   def build = openshift.selector('bc', 'bcezlearning').startBuild("--from-dir .")
+                   build.logs('-f')
+               }
+           }
+       }
+   }
+}
 
-        stage('Docker Image Build') {
-            steps {
-                // This uploads your application's source code and performs a binary build in OpenShift
-                // This is a step defined in the shared library (see the top for the URL)
-                // (Or you could invoke this step using 'oc' commands!)
-                binaryBuild(buildConfigName: appName, buildFromPath: ".")
-            }
-        }//
+
+        
 
 
 
