@@ -8,20 +8,14 @@ pipeline {
     stages {
         stage('Git Pull') {
             steps {
-            git url: 'https://github.com/a-dhaou/ez-learning'
-                
+            git url: 'https://github.com/a-dhaou/ez-learning'   
             }
-            
         }
-
 
         stage('Maven BUild') {
             steps {
-            
                  withMaven(maven: 'maven3_8') {
-                    
-                    sh "mvn clean verify"
-                     
+                    sh "mvn clean verify"    
                  }
             }
             
@@ -34,19 +28,13 @@ pipeline {
            openshift.withCluster() {
                openshift.withProject("project1") {
                    // bc = build configuration ...
-                   def build = openshift.selector('bc', 'ezlearning').startBuild("--from-dir .")
+                   def build = openshift.selector('bc', 'ezlearning').startBuild()
                    build.logs('-f')
                }
            }
        }
    }
 }
-
-
-        
-
-
-
 
     }
     }
