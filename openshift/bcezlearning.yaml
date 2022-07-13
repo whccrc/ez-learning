@@ -5,7 +5,7 @@ metadata:
   namespace: project1
   labels:
     app.kubernetes.io/name: DockerImage
-  name: ezlearning
+    name: ezlearning
 spec:
   output:
     to:
