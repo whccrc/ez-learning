@@ -23,7 +23,7 @@ pipeline {
 
 
         stage('Docker image Build') { 
-            steps { step {
+            steps { step ('A') {
                 def myEnv = docker.build 'my-environment:snapshot' 
                 myEnv.inside {
                     sh 'make test'} 
