@@ -32,9 +32,14 @@ pipeline {
                              }
 
         stage('Docker Image Build') {
-      steps {
-        sh 'docker build -t app.jar:latest .'
-      }
+            steps { script{
+                
+          def myEnv = docker.build 'my-environment:snapshot'
+                myEnv.inside {
+                    sh 'make test'
+                }
+            }
+                  }
     }
 
     }//stages
