@@ -13,12 +13,7 @@ pipeline {
     }
 
     stages {
-        
-        stage('Test') {
-            steps {
-                sh 'node --version'
-            }
-        }
+       
        stage('Initialize'){
             steps{
                 script {
