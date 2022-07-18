@@ -38,7 +38,7 @@ pipeline {
         stage('Docker Image Build') {
             steps { script{
                 
-          docker build https://github.com/a-dhaou/ez-learning/Dockerfile
+          docker build -f Dockerfile
                
             }
                   }
