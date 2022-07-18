@@ -34,13 +34,20 @@ pipeline {
         stage('Docker Image Build') {
             steps { script{
                 
-          def myEnv = docker.build 'my-environment:snapshot'
+          def myEnv = docker.build 'app.jar:snapshot'
                 myEnv.inside {
                     sh 'make test'
                 }
             }
                   }
     }
-
+//stage('Docker Build') {
+    //  agent any
+      //steps {
+      //  sh 'docker build -t ezlearning:latest .'
+    //  }
+   // }
+        
+        //stage ('push image to registry')https://gist.github.com/bruno-brant/b4d4935cb33828f48d18078c294eb12b
     }//stages
            }
