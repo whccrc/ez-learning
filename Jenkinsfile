@@ -8,9 +8,7 @@ pipeline {
      //dockerHome = tool 'dockerinstall'
    //}
 
-    agent {
-        docker { image 'node:17.09.1-ce' }
-    }
+    agent { dockerfile true }
 
     stages {
        
