@@ -1,6 +1,9 @@
 appName = "ezlearning"
 
 pipeline {
+    tools {
+  dockerTool 'dockerinstall'
+}
     environment {
      dockerHome = tool 'dockerinstall'
    }
