@@ -19,4 +19,4 @@ spec:
     type: Docker
     dockerStrategy:
       # Find the image build instructions in ./Dockerfile
-      dockerfilePath: ./openshift/Dockerfile
+      dockerfilePath: ./Dockerfile
