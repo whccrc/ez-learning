@@ -22,13 +22,13 @@ pipeline {
                           }
 
 
-        stage('Docker image Build') {
+        stage('Docker image Build') { script {
             
    def myEnv = docker.build 'my-environment:snapshot'
   myEnv.inside {
       sh 'make test'}
             
-                                    }
+        }         }
 
     }
            }
