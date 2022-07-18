@@ -4,11 +4,13 @@ pipeline {
     tools {
   dockerTool 'dockerinstall'
 }
-    environment {
-     dockerHome = tool 'dockerinstall'
-   }
+    //environment {
+     //dockerHome = tool 'dockerinstall'
+   //}
 
-    agent { dockerfile true }
+    agent {
+        docker { image 'node:17.09.1-ce' }
+    }
 
     stages {
        stage('Initialize'){
