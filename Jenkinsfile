@@ -7,12 +7,12 @@ pipeline {
 
     stages {
         
-        stage('Initialize'){
+        node{stage('Initialize'){
             steps{
                 def dockerHome = tool 'dockerinstall'
-        env.PATH = "${dockerHome}/bin:${env.PATH}"
+                env.PATH = "${dockerHome}/bin:${env.PATH}"
     }
-        }
+        }}
         
         stage('Git Pull') {
             steps {
