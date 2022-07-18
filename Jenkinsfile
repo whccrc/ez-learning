@@ -8,9 +8,11 @@ pipeline {
     stages {
         
         stage('Initialize'){
-        def dockerHome = tool 'dockerinstall'
+            steps{
+                def dockerHome = tool 'dockerinstall'
         env.PATH = "${dockerHome}/bin:${env.PATH}"
     }
+        }
         
         stage('Git Pull') {
             steps {
