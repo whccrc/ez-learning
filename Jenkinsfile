@@ -7,6 +7,11 @@ pipeline {
 
     stages {
         
+        stage('Initialize'){
+        def dockerHome = tool 'dockerinstall'
+        env.PATH = "${dockerHome}/bin:${env.PATH}"
+    }
+        
         stage('Git Pull') {
             steps {
             git url: 'https://github.com/a-dhaou/ez-learning'   
