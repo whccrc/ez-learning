@@ -38,9 +38,7 @@ pipeline {
             steps { script{
                 
           def myEnv = docker.build 'app.jar:snapshot'
-                myEnv.inside {
-                    sh 'make test'
-                }
+               
             }
                   }
     }
