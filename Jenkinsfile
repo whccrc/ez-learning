@@ -22,14 +22,15 @@ pipeline {
                           }
 
 
-        stage('Docker image Build') { steps { step {
-            
-   def myEnv = docker.build 'my-environment:snapshot'
-  myEnv.inside {
-      sh 'make test'} 
-            
-        }         } }
+        stage('Docker image Build') { 
+            steps { step {
+                def myEnv = docker.build 'my-environment:snapshot' 
+                myEnv.inside {
+                    sh 'make test'} 
+                         }         
+                  }           
+                                    }
 
-    }
+    }//stages
            }
     
