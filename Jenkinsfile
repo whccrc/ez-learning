@@ -38,7 +38,7 @@ pipeline {
         stage('Docker Image Build') {
             steps { script{
                 
-          def myEnv = docker.build 'app.jar:snapshot'
+          docker build - < Dockerfile
                
             }
                   }
