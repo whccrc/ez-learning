@@ -21,16 +21,12 @@ pipeline {
                    }    
                           }
 
-        stage('Docker image Build') {
-   steps {
-       script {
-             def myEnv = docker.build 'my-environment:snapshot'
-             myEnv.inside {
-                sh 'make test'
-                }
-                }
-                }
-}
+        stage('Docker Image Build') {
+      agent { dockerfile true }
+      steps {
+        sh 'docker build -t app.jar:latest .'
+      }
+    }
 
     }//stages
            }
