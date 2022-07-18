@@ -21,7 +21,7 @@ pipeline {
                    }    
                           }
 
-
+        node {
         stage('Docker image Build') { 
             steps { step ('A') {
                 def myEnv = docker.build 'my-environment:snapshot' 
@@ -30,6 +30,7 @@ pipeline {
                          }         
                   }           
                                     }
+        }
 
     }//stages
            }
