@@ -1,9 +1,8 @@
-
 appName = "ezlearning"
 
 pipeline {
     environment {
-     dockerHome = "dockerHome"
+     dockerHome = tool 'dockerinstall'
    }
 
     agent { dockerfile true }
@@ -12,9 +11,8 @@ pipeline {
         
         stage('Initialize'){
             steps{
-                dockerHome = tool 'dockerinstall'
                 env.PATH = "${dockerHome}/bin:${env.PATH}"
-    }
+            }
         }
         
         stage('Git Pull') {
