@@ -2,17 +2,20 @@
 appName = "ezlearning"
 
 pipeline {
+    environment {
+     dockerHome = "dockerHome"
+   }
 
     agent { dockerfile true }
 
     stages {
         
-        node{stage('Initialize'){
+        {stage('Initialize'){
             steps{
                 def dockerHome = tool 'dockerinstall'
                 env.PATH = "${dockerHome}/bin:${env.PATH}"
     }
-        }}
+        }
         
         stage('Git Pull') {
             steps {
