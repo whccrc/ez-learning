@@ -3,18 +3,13 @@ appName = "ezlearning"
 pipeline {
     environment {
      dockerHome = tool 'dockerinstall'
+     env.PATH = "${dockerHome}/bin:${env.PATH}"
    }
 
     agent { dockerfile true }
 
     stages {
-        
-        stage('Initialize'){
-            steps{
-                env.PATH = "${dockerHome}/bin:${env.PATH}"
-            }
-        }
-        
+       
         stage('Git Pull') {
             steps {
             git url: 'https://github.com/a-dhaou/ez-learning'   
@@ -27,10 +22,9 @@ pipeline {
                     sh "mvn clean verify"    
                                               }
                    }    
-                          }
+                             }
 
         stage('Docker Image Build') {
-      agent { dockerfile true }
       steps {
         sh 'docker build -t app.jar:latest .'
       }
