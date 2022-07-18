@@ -3,13 +3,20 @@ appName = "ezlearning"
 pipeline {
     environment {
      dockerHome = tool 'dockerinstall'
-     env.PATH = "${dockerHome}/bin:${env.PATH}"
    }
 
     agent { dockerfile true }
 
     stages {
-       
+       stage('Initialize'){
+            steps{
+                script {
+                dockerHome = tool 'dockerinstall'
+                env.PATH = "${dockerHome}/bin:${env.PATH}"
+                }
+            }
+       }
+        
         stage('Git Pull') {
             steps {
             git url: 'https://github.com/a-dhaou/ez-learning'   
@@ -32,4 +39,3 @@ pipeline {
 
     }//stages
            }
-    
