@@ -28,7 +28,7 @@ pipeline {
     def scannerHome = tool 'sonarqube4_7';
     withSonarQubeEnv('sonarqube4_7') {
       sh "${scannerHome}/bin/sonar-scanner \
-       mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar
+      mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar
       -D sonar.login=admin \
       -D sonar.password=admin \
       -D sonar.projectKey=ezsonar \
