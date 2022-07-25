@@ -14,18 +14,23 @@ pipeline {
 
         stage('Maven BUild') {
             steps {
-                script{
+                
                  withMaven(maven: 'maven3_8') {
                     sh "mvn clean package"    
                                               }
                    }
-            }
+            
                              }
+        
         stage('SonarQube analysis') {
+            steps {
+                script{
     withSonarQubeEnv(cinstallationName: 'sonarqube4_7') { 
       sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.9.1.2184:sonar'
     }
   }
+            }
+        }
 
         stage('Docker Image Build') {
             steps { 
