@@ -14,10 +14,12 @@ pipeline {
 
         stage('Maven BUild') {
             steps {
+                script{
                  withMaven(maven: 'maven3_8') {
                     sh "mvn clean package"    
                                               }
-                   }    
+                   }
+            }
                              }
         stage('SonarQube analysis') {
     withSonarQubeEnv(cinstallationName: 'sonarqube4_7') { 
