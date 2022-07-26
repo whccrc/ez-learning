@@ -27,7 +27,7 @@ pipeline {
                 script {
     def scannerHome = tool 'sonarqube';
     withSonarQubeEnv('sonarqube') {
-        sh {${scannerHome}/bin/sonar-scanner \
+        sh {"${scannerHome}/bin/sonar-scanner" \
             -D sonar.projectKey=ezsonar \
             -D sonar.exclusions=vendor/**,resources/**,**/*.java \
              -Dsonar.host.url=https://sonarqube-project1.apps-crc.testing \
