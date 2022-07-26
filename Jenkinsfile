@@ -30,9 +30,9 @@ pipeline {
         sh "${scannerHome}/bin/sonar-scanner \
             -D sonar.projectKey=ezsonar \
             -D sonar.exclusions=vendor/**,resources/**,**/*.java \
-             -Dsonar.host.url=https://sonarqube-project1.apps-crc.testing \
+            -Dsonar.host.url=https://sonarqube-project1.apps-crc.testing \
             -Dsonar.login=c652e392ba1598d50db1dea0183b735ea99dc10d \"
-    }//withenv
+    }//withsonar
   }//script
 }//steps
         }//stage
