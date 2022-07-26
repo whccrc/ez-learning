@@ -58,7 +58,7 @@ spec:
                   name: secretmariadb
                   key: database-password
             - name: APP_PROFILE
-              value: ‘prod’
+              value: "prod"
             - name: DB_URL
               value: 'mariadbservice.project1.svc.cluster.local:3306/ezlearning'
 
