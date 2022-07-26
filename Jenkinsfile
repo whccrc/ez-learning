@@ -16,7 +16,7 @@ pipeline {
             steps {
                 
                  withMaven(maven: 'maven3_8') {
-                    sh "mvn clean package sonar:sonar"    
+                    sh "mvn clean package "    
                                               }
                    }
             
@@ -25,13 +25,12 @@ pipeline {
         stage('SonarQube analysis') {
             steps {
                 script {
-    def scannerHome = tool 'sonarqube';
+    
+                    withMaven(maven: 'maven3_8') {
     withSonarQubeEnv('sonarqube') {
-        sh "${scannerHome}/bin/sonar-scanner \
-            -D sonar.projectKey=ezsonar \
-            -D sonar.exclusions=vendor/**,resources/**,**/*.java \
-            -D sonar.host.url=https://sonarqube-project1.apps-crc.testing \
-            -D sonar.login=c652e392ba1598d50db1dea0183b735ea99dc10d \"
+        sh "mvn sonar:sonar \
+        -D sonar.projectKey=ezsonar "
+    }//withmaven
     }//withsonar
   }//script
 }//steps
