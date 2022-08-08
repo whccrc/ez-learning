@@ -22,20 +22,19 @@ pipeline {
             
                              }
         
-        stage('SonarQube analysis') {
+        
+stage('Test') {
             steps {
-                script {
-    
-                    withMaven(maven: 'maven3_8') {
-    withSonarQubeEnv('sonarqube') {
-        sh "mvn sonar:sonar \
-        -D sonar.projectKey=ezsonar "
-    }//withmaven
-    }//withsonar
-  }//script
-}//steps
-        }//stage
+                sh './mvnw test'
+                
+            }
 
+            post {
+                always {
+                    junit '**/target/surefire-reports/TEST-*.xml'
+                }
+            }
+        }
         
 
         stage('Docker Image Build') {
