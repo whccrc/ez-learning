@@ -21,10 +21,7 @@ pipeline {
                    }
             
                              }
-        stage('Integration') {
-            steps {
-  junit 'test-results.xml'
-            }}
+       
         
 stage('Test') {
             steps {
