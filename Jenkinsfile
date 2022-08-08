@@ -24,8 +24,8 @@ pipeline {
        
         
 stage('Test') {
-            steps {
-                sh 'mvnw test'
+            steps {withMaven(maven: 'maven3_8') {
+                sh 'mvn test'}
                 
             }
 
