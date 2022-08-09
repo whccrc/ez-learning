@@ -21,7 +21,17 @@ pipeline {
                    }//steps mvn build
             
                              }//stage mvn build
+stage('Test') {
+            steps {withMaven(maven: 'maven3_8') {
+                sh 'mvnm test'}//withmaven
+            }//steps
 
+            post {
+                always {
+                    junit '**/target/surefire-reports/TEST-*.xml'
+                }
+            }
+        }
         stage('Docker Image Build') {
             steps { 
                 script{
