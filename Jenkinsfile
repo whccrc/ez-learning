@@ -21,10 +21,6 @@ pipeline {
                    }//steps mvn build
             
                              }//stage mvn build
-stage('Test') {
-            steps {withMaven(maven: 'maven3_8') {
-                sh  script{./mvnw --batch-mode -Dmaven.test.failure.ignore=true test }
-            }//steps
 
             post {
                 always {
