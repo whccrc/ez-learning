@@ -6,12 +6,11 @@ EXPOSE 8080
 WORKDIR /home/app
 RUN wget https://repo1.maven.org/maven2/io/prometheus/jmx/jmx_prometheus_javaagent/0.16.1/jmx_prometheus_javaagent-0.16.1.jar 
 RUN wget https://raw.githubusercontent.com/prometheus/jmx_exporter/master/example_configs/tomcat.yml
-RUN rm -rf /usr/local/tomcat/webapps/* 
+
 
 ENV CATALINA_OPTS -javaagent:/home/app/jmx_prometheus_javaagent-0.16.1.jar-1738:/home/app/tomcat.yml
 
-RUN chgrp -R 0 /usr/local/tomcat/ && \
-chmod -R g=u /usr/local/tomcat/
+
 EXPOSE 1738
 ENTRYPOINT ["sh", "-c"]
 CMD ["catalina.sh", "run", "java -javaagent:/home/app/jmx_prometheus_javaagent-0.16.1.jar:1738 -jar app.jar"]
