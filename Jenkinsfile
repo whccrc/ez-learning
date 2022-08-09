@@ -23,7 +23,7 @@ pipeline {
                              }//stage mvn build
 stage('Test') {
             steps {withMaven(maven: 'maven3_8') {
-                sh '.\mvnm test'}//withmaven
+                sh './mvnm test'}//withmaven
             }//steps
 
             post {
