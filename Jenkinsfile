@@ -16,7 +16,7 @@ pipeline {
             steps {
                 
                  withMaven(maven: 'maven3_8') {
-                    sh "mvn -B clean package "    
+                    sh "mvn -q clean package "    
                                               }//with maven
                    }//steps mvn build
             
