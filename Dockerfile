@@ -8,7 +8,7 @@ RUN wget https://repo1.maven.org/maven2/io/prometheus/jmx/jmx_prometheus_javaage
 RUN wget https://raw.githubusercontent.com/prometheus/jmx_exporter/master/example_configs/tomcat.yml
 
 
-ENV CATALINA_OPTS -javaagent:/app/jmx_prometheus_javaagent-0.16.1.jar-1738:/app/tomcat.yml
+ENV CATALINA_OPTS -javaagent:/app/jmx_prometheus_javaagent-0.16.1.jar=1738:/app/tomcat.yml
 
 
 EXPOSE 1738
