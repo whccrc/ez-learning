@@ -22,12 +22,6 @@ pipeline {
             
                              }//stage mvn build
 
-            post {
-                always {
-                    junit '**/target/surefire-reports/TEST-*.xml'
-                }
-            }
-        }
         stage('Docker Image Build') {
             steps { 
                 script{
