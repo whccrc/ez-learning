@@ -1,6 +1,6 @@
 # Inject the JAR file into a new container to keep the file small
 FROM image-registry.openshift-image-registry.svc:5000/project1/openjdk:8
-WORKDIR home/app
+WORKDIR /home/app
 COPY ./target/platform.jar /app/app.jar
 EXPOSE 8080
 
@@ -9,8 +9,8 @@ RUN wget https://raw.githubusercontent.com/prometheus/jmx_exporter/master/exampl
 RUN rm -rf /usr/local/tomcat/webapps/* 
 
 
-ENV CATALINA_OPTS -javaagent:home/app/jmx_prometheus_javaagent-0.16.1.jar=1738:home/app/tomcat.yml
+ENV CATALINA_OPTS -javaagent:/home/app/jmx_prometheus_javaagent-0.16.1.jar=1738:home/app/tomcat.yml
 
 
 EXPOSE 1738
-CMD ["java -javaagent:home/app/jmx_prometheus_javaagent-0.16.1.jar=1738:tomcat.yml -jar app.jar"]
+CMD ["java -javaagent:/home/app/jmx_prometheus_javaagent-0.16.1.jar=1738:tomcat.yml -jar app.jar"]
