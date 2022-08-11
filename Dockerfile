@@ -11,6 +11,7 @@ COPY ./target/platform.jar /usr/local/tomcat/webapps/ROOT.jar
 
 ENV CATALINA_OPTS -javaagent:/home/app/jmx_prometheus_javaagent-0.16.1.jar=1738:home/app/tomcat.yml
 
-
+# "/usr/local/tomcat/bin/catalina.sh", 
+#  -javaagent:/home/app/jmx_prometheus_javaagent-0.16.1.jar=1738:tomcat.yml 
 EXPOSE 1738
-CMD ["/usr/local/tomcat/bin/catalina.sh", "java -javaagent:/home/app/jmx_prometheus_javaagent-0.16.1.jar=1738:tomcat.yml -jar app.jar"]
+CMD ["java -jar app.jar"]
