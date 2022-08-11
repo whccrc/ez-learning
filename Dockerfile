@@ -13,4 +13,4 @@ ENV CATALINA_OPTS -javaagent:home/app/jmx_prometheus_javaagent-0.16.1.jar=1738:h
 
 
 EXPOSE 1738
-CMD ["java -javaagent:home/app/jmx_prometheus_javaagent-0.16.1.jar=1738 -jar app.jar"]
+CMD ["java -javaagent:home/app/jmx_prometheus_javaagent-0.16.1.jar=1738:tomcat.yml -jar app.jar"]
