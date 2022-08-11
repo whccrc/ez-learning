@@ -12,4 +12,5 @@ ENV CATALINA_OPTS -javaagent:/app/jmx_prometheus_javaagent-0.16.1.jar=1738:/app/
 
 
 EXPOSE 1738
-CMD ["run", "java -javaagent:/app/jmx_prometheus_javaagent-0.16.1.jar:1738 -jar app.jar"]
+ENTRYPOINT ["catalina.sh", "run"]
+CMD ["java -javaagent:/app/jmx_prometheus_javaagent-0.16.1.jar:1738 -jar app.jar"]
