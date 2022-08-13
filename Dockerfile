@@ -6,7 +6,7 @@ EXPOSE 8080
 RUN wget https://repo1.maven.org/maven2/io/prometheus/jmx/jmx_prometheus_javaagent/0.16.1/jmx_prometheus_javaagent-0.16.1.jar 
 RUN wget https://raw.githubusercontent.com/prometheus/jmx_exporter/master/example_configs/tomcat.yml
 RUN rm -rf /usr/local/tomcat/webapps/* 
-COPY ./target/platform.jar /usr/local/tomcat/webapps/ROOT.war
+COPY ./target/platform.jar /usr/local/tomcat/webapps/ROOT.jar
 
 RUN chgrp -R 0 /usr/local/tomcat/ && \
     chmod -R g=u /usr/local/tomcat/ 
