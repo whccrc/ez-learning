@@ -11,10 +11,10 @@ RUN ls /usr/local/tomcat/webapps/
 RUN chgrp -R 0 /usr/local/tomcat/ && \
     chmod -R g=u /usr/local/tomcat/ 
 EXPOSE 1738
-ENV CATALINA_OPTS -javaagent:/app/jmx_prometheus_javaagent-0.16.1.jar=1738:/app/tomcat.yml
+#ENV CATALINA_OPTS -javaagent:/app/jmx_prometheus_javaagent-0.16.1.jar=1738:/app/tomcat.yml
 ENTRYPOINT ["sh", "-c"]
  
-#-javaagent:/app/jmx_prometheus_javaagent-0.16.1.jar=1738:/app/tomcat.yml
 
-CMD ["catalina.sh", "run"]
-CMD ["java -jar app.jar"]
+
+#CMD ["catalina.sh", "run"]
+CMD ["java -javaagent:/app/jmx_prometheus_javaagent-0.16.1.jar=1738:/app/tomcat.yml -jar app.jar"]
