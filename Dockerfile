@@ -17,4 +17,4 @@ ENTRYPOINT ["sh", "-c"]
 
 
 #CMD ["catalina.sh", "run"]
-CMD ["java -javaagent:/app/jmx_prometheus_javaagent-0.16.1.jar=8443:/app/tomcat.yml -jar app.jar"]
+CMD ["java -javaagent:/app/jmx_prometheus_javaagent-0.16.1.jar=8080:/app/tomcat.yml -jar app.jar"]
