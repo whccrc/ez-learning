@@ -21,6 +21,21 @@ pipeline {
                                               }
                    }
                              }
+        
+      
+        stage('SonarQube analysis') {
+            steps {
+                script {
+
+                    withMaven(maven: 'maven3_8') {
+    withSonarQubeEnv('sonarqube') {
+        sh "mvn sonar:sonar \
+        -D sonar.projectKey=ezsonar "
+    }//withsonar
+    }//withmaven 
+                }
+            }
+        }
 
         stage('Docker Image Build') {
             steps { 
