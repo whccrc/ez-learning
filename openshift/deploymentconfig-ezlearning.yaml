@@ -37,7 +37,7 @@ spec:
     spec:
       containers:
         - name: ezlearning
-          image: 'image-registry.openshift-image-registry.svc:5000/attempt5/ez-learning-git-new:latest'
+          image: 'image-registry.openshift-image-registry.svc:5000/project1/ez-learning-git-new:latest'
           ports:
             - containerPort: 8080
               protocol: TCP
