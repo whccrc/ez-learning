@@ -9,13 +9,19 @@ pipeline {
                           }
         stage('Maven BUild') {
             steps {
-                
-                 withMaven(maven: 'maven3_8') {
-                    sh "mvn clean package "    
-                                              }
+              script {
+            try {
+                withMaven(maven: 'maven3_8') {
+                    // Add the -X switch to enable full debug logging
+                    sh "mvn -X clean package"
+                }
+            } catch (Exception e) {
+                currentBuild.result = 'FAILURE'
+                error("Maven build failed: ${e.message}")
+            }
+        }
                    }
                              }
-        
         stage('SonarQube analysis') {
             steps {
                 script {
