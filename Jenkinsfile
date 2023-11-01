@@ -13,8 +13,7 @@ pipeline {
             try {
                 withMaven(maven: 'maven3_8') {
                     // Add the -X switch to enable full debug logging
-                    sh "mvn -X clean package"
-                }
+                    sh "mvn -X clean package -Dmaven.repo.local=/var/jenkins_home/.m2/repository"                
             } catch (Exception e) {
                 currentBuild.result = 'FAILURE'
                 error("Maven build failed: ${e.message}")
