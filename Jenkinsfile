@@ -12,7 +12,7 @@ pipeline {
             
           
                  withMaven(maven: 'maven3_8') {
-                       sh "mvn clean package -Dmaven.repo.local=/var/jenkins_home/.m2/repository"
+                       sh "mvn clean package"
                                              } 
 
                   }
@@ -20,11 +20,10 @@ pipeline {
 stage('SonarQube analysis') {
     steps {
         script {
-            def mavenRepoLocal = '/var/jenkins_home/.m2/repository'
             def customUserHome = '/var/jenkins_home/.sonar_custom_cache'
             withMaven(maven: 'maven3_8') {
                 withSonarQubeEnv('sonarqube') {
-                    sh "mvn -Dmaven.repo.local=${mavenRepoLocal} sonar:sonar -Dsonar.userHome=${customUserHome} -Dsonar.projectKey=ezsonar"
+                    sh "mvn - sonar:sonar -Dsonar.userHome=${customUserHome} -Dsonar.projectKey=ezsonar"
                 }
             }
         }
