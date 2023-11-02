@@ -12,7 +12,7 @@ pipeline {
             
           
                  withMaven(maven: 'maven3_8') {
-            sudo sh "mvn clean package "
+             sh "mvn clean package "
                                              } 
 
                   }
