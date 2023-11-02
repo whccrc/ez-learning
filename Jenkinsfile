@@ -9,14 +9,13 @@ pipeline {
                           }
         stage('Maven BUild') {
             steps {
-              script {
+            
           
-                withMaven(maven: 'maven3_8') {
-                    // Add the -X switch to enable full debug logging
-                    sh "mvn clean package          
+                 withMaven(maven: 'maven3_8') {
+                    sh "mvn clean package "    
             } 
         
-                   }
+                   
                              }
         stage('SonarQube analysis') {
             steps {
