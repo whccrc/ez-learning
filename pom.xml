@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.ezlearning</groupId>
-    <artifactId>EZ Learning</artifactId>
+    <artifactId>platform</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>platform</name>
     <description>Ez learning platform</description>
