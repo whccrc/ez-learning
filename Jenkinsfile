@@ -13,10 +13,11 @@ pipeline {
           
                  withMaven(maven: 'maven3_8') {
             sudo sh "mvn clean package "
-                 } 
-        
-                   
-                             }
+                                             } 
+
+                  }
+        }
+          
         stage('SonarQube analysis') {
             steps {
                 script {
