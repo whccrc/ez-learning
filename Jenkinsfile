@@ -33,6 +33,7 @@ stage('SonarQube analysis') {
         stage('Docker Image Build') {
             steps { 
                 script{
+                              echo "Starting Docker Image Build"
                     openshift.withCluster() {
                     openshift.withProject("project1") {
                    // bc = build configuration ...
