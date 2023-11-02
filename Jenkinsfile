@@ -23,7 +23,7 @@ pipeline {
                 script {
                     withMaven(maven: 'maven3_8') {
                       withSonarQubeEnv('sonarqube') {
-                        sh "mvn sonar:sonar \
+                        sh "mvn -Dmaven.repo.local=/var/jenkins_home/.m2/repository" sonar:sonar \
                         -D sonar.projectKey=ezsonar "
                                                      }//withsonar
                                                   }//withmaven 
