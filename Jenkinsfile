@@ -24,7 +24,7 @@ stage('SonarQube analysis') {
             def customUserHome = '/var/jenkins_home/.sonar_custom_cache'
             withMaven(maven: 'maven3_8') {
                 withSonarQubeEnv('sonarqube') {
-                    sh "mvn -Dmaven.repo.local=${mavenRepoLocal} sonar:sonar -Dsonar.userHome=${customUserHome}" -Dsonar.projectKey=ezsonar"
+                    sh "mvn -Dmaven.repo.local=${mavenRepoLocal} sonar:sonar -Dsonar.userHome=${customUserHome} -Dsonar.projectKey=ezsonar"
                 }
             }
         }
