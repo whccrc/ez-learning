@@ -18,20 +18,20 @@ pipeline {
                   }
         }
 
-        stage('Docker Image Build') {
-            steps { 
-                script{
-                              echo "Starting Docker Image Build"
-                    openshift.withCluster() {
-                    openshift.withProject("project1") {
-                   // bc = build configuration ...
+stage('Docker Image Build') {
+    steps {
+        script {
+            echo "Starting Docker Image Build"
+            openshift.withCluster() {
+                openshift.withProject("project1") {
                     def build = openshift.selector('bc', 'ezlearning').startBuild("--from-dir .")
-                    build.logs('-f')
-                                                       }
-                                             }           
-                        }
-                     }
-                                   }
+                    // Remove the build.logs('-f') line
+                }
+            }
+        }
+    }
+}
+
         
                }//stages
            }//pipeline
