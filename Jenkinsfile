@@ -22,7 +22,7 @@ pipeline {
             steps { 
                 script{
                               echo "Starting Docker Image Build"
-                    openshift.withCluster(api-crc-testing:6443) {
+                    openshift.withCluster(api-crc-testing) {
                     openshift.withProject("project1") {
                    // bc = build configuration ...
                     def build = openshift.selector('bc', 'ezlearning').startBuild("--from-dir .")
