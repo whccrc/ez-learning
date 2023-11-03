@@ -12,7 +12,7 @@ pipeline {
             
           
                  withMaven(maven: 'maven3_8') {
-                       sh "mvn clean package -Dmaven.repo.local=/var/jenkins_home/.m2/repository"
+                       sh "mvn clean package -q -Dmaven.repo.local=/var/jenkins_home/.m2/repository"
                                              } 
 
                   }
@@ -22,7 +22,7 @@ pipeline {
             steps { 
                 script{
                               echo "Starting Docker Image Build"
-                    openshift.withCluster(api-crc-testing) {
+                    openshift.withCluster() {
                     openshift.withProject("project1") {
                    // bc = build configuration ...
                     def build = openshift.selector('bc', 'ezlearning').startBuild("--from-dir .")
