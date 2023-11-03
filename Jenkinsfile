@@ -17,7 +17,7 @@ pipeline {
 
                   }
         }
-//stage('SonarQube analysis') {
+stage('SonarQube analysis') {
     steps {
         script {
             def mavenRepoLocal = '/var/jenkins_home/.m2/repository'
