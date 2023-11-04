@@ -23,15 +23,18 @@ stage('Docker Image Build') {
         script {
             echo "Starting Docker Image Build"
             openshift.withCluster() {
+                echo "Inside withCluster block"
                 openshift.withProject("project1") {
+                    echo "Inside withProject block"
                     def build = openshift.selector('bc', 'ezlearning').startBuild("--from-dir .")
-                    // Remove the build.logs('-f') line
+                    echo "Build started"
                 }
             }
         }
     }
 }
 
-        
+
+  //end docker image build      
                }//stages
            }//pipeline
