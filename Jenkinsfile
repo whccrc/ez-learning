@@ -25,7 +25,7 @@ stage('Docker Image Build') {
             openshift.withCluster() {
                 openshift.withProject("project1") {
                     // Run the 'eval' command
-                    sh "eval \$(crc oc-env)"
+                    //sh "eval \$(crc oc-env)"
                     def build = openshift.selector('bc', 'ezlearning').startbuild("--from-dir .")
  
                     // Continue with other OpenShift or Docker-related commands
