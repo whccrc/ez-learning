@@ -20,21 +20,20 @@ pipeline {
 
 stage('Docker Image Build') {
     steps {
-sh "eval $(crc oc-env)"
         script {
             echo "Starting Docker Image Build"
             openshift.withCluster() {
-                
-                echo "Inside withCluster block"
                 openshift.withProject("project1") {
-                    echo "Inside withProject block"
-                    def build = openshift.selector('bc', 'ezlearning').startBuild("--from-dir .")
-                    echo "Build started"
+                    // Run the 'eval' command
+                    sh "eval \$(crc oc-env)"
+
+                    // Continue with other OpenShift or Docker-related commands
                 }
             }
         }
     }
 }
+
 
 
   //end docker image build      
