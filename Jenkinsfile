@@ -22,7 +22,7 @@ stage('Docker Image Build') {
     steps {
         script {
             echo "Starting Docker Image Build"
-            openshift.withCluster('mycluster') {
+            openshift.withCluster() {
                 openshift.withProject() {
                     def build = openshift.selector('bc', 'ezlearning').startBuild("--from-dir .")
                     // Remove the build.logs('-f') line
