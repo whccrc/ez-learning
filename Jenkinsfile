@@ -23,6 +23,13 @@ stage('Docker Image Build') {
         script {
             echo "Starting Docker Image Build"
             openshift.withCluster() {
+    openshift.verbose()
+    // Get details printed to the Jenkins console and pass high --log-level to all oc commands
+    openshift.newProject( 'my-new-project' )
+    openshift.verbose(false) // Turn it back
+
+    // If you want verbose output, but want a specific log-level
+    openshift.logLevel(3)
                 openshift.withProject("project1") {
                     // Run the 'eval' command
                     //sh "eval \$(crc oc-env)"
