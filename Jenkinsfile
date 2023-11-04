@@ -20,10 +20,11 @@ pipeline {
 
 stage('Docker Image Build') {
     steps {
+sh "eval $(crc oc-env)"
         script {
             echo "Starting Docker Image Build"
             openshift.withCluster() {
-                sh "eval $(crc oc-env)"
+                
                 echo "Inside withCluster block"
                 openshift.withProject("project1") {
                     echo "Inside withProject block"
