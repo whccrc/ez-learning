@@ -12,7 +12,7 @@ pipeline {
             
           
                  withMaven(maven: 'maven3_8') {
-                       sh "mvn clean package --quiet -Dmaven.repo.local=/var/jenkins/.m2/repository"
+                       sh "mvn clean package --quiet -Dmaven.repo.local=/var/lib/jenkins/.m2/repository"
                                              } 
 
                   }
