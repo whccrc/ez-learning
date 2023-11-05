@@ -21,7 +21,7 @@ pipeline {
         stage('Docker Image Build') {
             steps { 
                 script{
-                    openshift.withCluster() {
+                    openshift.withCluster('default') {
                     openshift.withProject("project1") {
                    // bc = build configuration ...
                     def build = openshift.selector('bc', 'ezlearning').startBuild("--from-dir .")
