@@ -23,7 +23,6 @@ pipeline {
                 script{
                     openshift.withCluster('default') {
                     openshift.withProject("project1") {
-PATH=$PATH:~/path/to/oc
                    // bc = build configuration ...
                     def build = openshift.selector('bc', 'ezlearning').startBuild("--from-dir .")
                     build.logs('-f')
