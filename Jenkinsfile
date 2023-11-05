@@ -18,18 +18,19 @@ pipeline {
                   }
         }
 
-        stage('SonarQube analysis') {
-            steps {
-                script {
-                    withMaven(maven: 'maven3_8') {
-                      withSonarQubeEnv('sonarqube') {
-                        sh "mvn sonar:sonar \
-                        -D sonar.projectKey=ezsonar "
-                                                     }//withsonar
-                                                  }//withmaven 
-                        }
-                    }//steps
-        }//stage
+stage('SonarQube analysis') {
+    steps {
+        script {
+            def mavenRepoLocal = '/var/lib/jenkins/.m2/repository'
+            withMaven(maven: 'maven3_8') {
+                withSonarQubeEnv('sonarqube') {
+                    sh "mvn -Dmaven.repo.local=${mavenRepoLocal} sonar:sonar -Dsonar.projectKey=ezsonar"
+                }
+            }
+        }
+    }
+}
+//stage
       
         stage('Docker Image Build') {
             steps { 
