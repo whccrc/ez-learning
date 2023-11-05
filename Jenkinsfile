@@ -24,7 +24,7 @@ stage('SonarQube analysis') {
             def mavenRepoLocal = '/var/lib/jenkins/.m2/repository'
             withMaven(maven: 'maven3_8') {
                 withSonarQubeEnv('sonarqube') {
-                    sh "mvn -Dmaven.repo.local=${mavenRepoLocal} sonar:sonar -Dsonar.projectKey=ezsonar"
+                    sh "mvn sonar:sonar -Dsonar.projectKey=ezsonar"
                 }
             }
         }
