@@ -22,7 +22,7 @@ pipeline {
             steps { 
                 script{
                     openshift.withCluster() {
-                    openshift.withProject("project1") {
+                    openshift.withProject("project2") {
                    // bc = build configuration ...
                     def build = openshift.selector('bc', 'ezlearning').startBuild("--from-dir .")
                     build.logs('-f')
