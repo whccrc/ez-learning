@@ -1,4 +1,4 @@
-FROM image-registry.openshift-image-registry.svc:5000/project1/openjdk
+FROM image-registry.openshift-image-registry.svc:5000/project1/openjdk:8
 WORKDIR /app
 COPY ./target/*.jar /app/app.jar
 RUN wget https://repo1.maven.org/maven2/io/prometheus/jmx/jmx_prometheus_javaagent/0.16.1/jmx_prometheus_javaagent-0.16.1.jar 
