@@ -4,7 +4,7 @@ metadata:
   name: ezlearningroute
   namespace: project1
   labels:
-    app: grafana
+    app: ezlearning
  
 spec:
  
