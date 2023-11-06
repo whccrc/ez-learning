@@ -3,6 +3,8 @@ apiVersion: v1
 metadata:
   name: ezlearningservice
   namespace: project1
+  labels:
+    app: ezlearning
  
   
 spec:
