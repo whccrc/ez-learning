@@ -3,6 +3,8 @@ apiVersion: route.openshift.io/v1
 metadata:
   name: ezlearningroute
   namespace: project1
+  labels:
+    app: grafana
  
 spec:
  
