@@ -12,6 +12,6 @@ spec:
     kind: Service
     name: ezlearning
   port:
-    targetPort: 8080
+    targetPort: 8081
   wildcardPolicy: None
 
