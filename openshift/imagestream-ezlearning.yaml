@@ -4,4 +4,4 @@ metadata:
   name: ezlearning
   namespace: project1
   labels:
-    app: grafana
+    app: ezlearning
