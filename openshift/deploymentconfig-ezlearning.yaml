@@ -39,7 +39,7 @@ spec:
         - name: ezlearning
           image: 'image-registry.openshift-image-registry.svc:5000/project1/ez-learning-git-new:latest'
           ports:
-            - containerPort: 8080
+            - containerPort: 8081
               protocol: TCP
             - containerPort: 8443
               protocol: TCP
@@ -47,18 +47,13 @@ spec:
               protocol: TCP
             - containerPort: 1738
               protocol: TCP
+
           env:
             - name: DB_USERNAME
-              valueFrom:
-                secretKeyRef:
-                  name: mysql
-                  key: database-user
+              value: test
             - name: DB_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: mysql
-                  key: database-password
+              value: test
             - name: APP_PROFILE
               value: prod
             - name: DB_URL
-              value: 'jdbc:mysql://mysql.project1.svc.cluster.local:3306/sampledb'
+              value: 'jdbc:mysql://mysql.project1.svc.cluster.local:3306/sampledb'              
