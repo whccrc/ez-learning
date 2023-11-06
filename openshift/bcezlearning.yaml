@@ -10,7 +10,7 @@ spec:
   output:
     to:
       kind: ImageStream
-      name: ezlearning:latest
+      name: ezlearning
   source:
     # Expect a local directory to be streamed to OpenShift as a build source
     type: Binary
