@@ -1,4 +1,5 @@
 appName = "ezlearning"
+
 pipeline {
   agent any
     stages {
@@ -9,12 +10,9 @@ pipeline {
                           }
         stage('Maven BUild') {
             steps {
-            
-          
                  withMaven(maven: 'maven3_8') {
                        sh "mvn clean package --quiet -Dmaven.repo.local=/var/lib/jenkins/.m2/repository"
                                              } 
-
                   }
         }
 
@@ -45,8 +43,6 @@ stage('SonarQube analysis') {
                         }
                      }
                                    }
-
-
 
   //end docker image build      
                }//stages
